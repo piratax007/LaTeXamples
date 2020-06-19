@@ -14,9 +14,17 @@ Este proyecto se encuentra en una etapa temprana de desarrollo y se alimenta pri
 en ejemplos de TikZ pero pretende incluir plantillas, paquetes, clases y ejemplos en general asociados a la producción de documentos con LaTeX.
 
 ## Contacto
-Si usted quiere hacer parte del equipo de **mantenedores** por favor primero únase al [grupo de Telegram][2] y después regístrese usted mismo en la 
-[lista de mantenedores][3]
+Si usted quiere hacer parte del equipo de **mantenedores** por favor primero únase al [grupo de Telegram][2], segundo regístrese usted mismo en la 
+[lista de mantenedores][3] y tercero póngase en contacto con el [líder de proyecto][4].
+
+Si tiene dudas acerca del este proyecto, por favor [contactenos directamente][2].
+
+También puede estar al tanto del proyecto a través de [Twitter][5].
+
+Para patrocinios, por favor contáctenos [aquí][4].
 
 [1]: https://github.com/piratax007/LaTeX_Course
 [2]: https://t.me/LaTeX4allGroup
-[3]: 
+[3]: https://github.com/piratax007/LaTeXamples
+[4]: piratax007@protonmail.ch
+[5]: https://twitter.com/piratax007
