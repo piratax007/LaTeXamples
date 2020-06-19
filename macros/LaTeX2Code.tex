@@ -1,0 +1,201 @@
+\RequirePackage[utf8]{inputenc}
+\RequirePackage[spanish]{babel}
+\RequirePackage{amsmath, amsfonts, amssymb}
+\RequirePackage{minted}
+\RequirePackage{subcaption} 
+\RequirePackage{wrapfig}
+\RequirePackage{mdframed}
+\RequirePackage{listings}
+\RequirePackage{etex}
+\RequirePackage{fancyhdr}
+\RequirePackage{graphics}
+\RequirePackage{xcolor}
+\RequirePackage{tikz}
+\usetikzlibrary{shadows}
+\lfoot{Este ejemplo esta puesto a disposición mediante la licencia GPLv3, usted es libre de usarlo, estudiarlo, modificarlo o compartirlo siempre que las obras derivadas las comparta bajo los mismos términos y mencione al autor original.}
+\pagenumbering{gobble}
+\renewcommand{\headrulewidth}{0pt}
+
+\graphicspath{{./images/}}
+
+%%------------------------------------------
+%% Márgenes
+%%------------------------------------------
+\RequirePackage[top = 1.5cm, bottom = 1.5cm, left = 1.5cm, right = 1.5cm, foot = .5cm]{geometry}
+%%------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Configuración global del ambiente minted para LaTeX
+%%----------------------------------------------------------------------
+\setminted[latex]{
+style = friendly, 
+frame = lines, 
+bgcolor = codeback!10, 
+linenos = true,
+numberblanklines = false,
+tabsize = 2, 
+fontsize = \small,
+resetmargins, 
+framesep = 2mm, 
+baselinestretch = 1.2,
+numbersep = 3pt
+}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Entradas:
+%% #1 un color
+%% #2 Un texto
+%%----------------------------------------------------------------------
+%% Salida: El texto #2 escrito en negrita y color #1
+%%----------------------------------------------------------------------
+\newcommand{\bfcolor}[2]{
+\textbf{\textcolor{#1}{#2}}
+}
+%%----------------------------------------------------------------------
+  
+%%----------------------------------------------------------------------
+%% Entradas:
+%% #1 Un comando
+%% Salida:
+%%----------------------------------------------------------------------
+%% El comando #1 en formato verbatim y negrilla
+%%----------------------------------------------------------------------
+\newcommand{\bftt}[1]{\textbf{\texttt{#1}}}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Entrada:
+%% #1 Un caracter del teclado
+%%----------------------------------------------------------------------
+%% Salida:
+%% La representación de la tecla
+%%----------------------------------------------------------------------
+\newcommand*\keystroke[1]{
+  \tikz[baseline=(key.base)]
+    \node[%
+      draw,
+      fill=white,
+      drop shadow={shadow xshift=0.25ex,shadow yshift=-0.25ex,fill=black,opacity=0.75},
+      rectangle,
+      rounded corners=2pt,
+      inner sep=1pt,
+      line width=0.5pt,
+      font=\scriptsize\sffamily
+    ](key) {#1\strut}
+  ;
+}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Entradas:
+%% #1 un caracter del teclado
+%% Salida:
+%% La representación de la tecla en negrilla
+%%----------------------------------------------------------------------
+\newcommand{\keystrokebftt}[1]{\keystroke{\bftt{#1}}}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Escribir un comando (LaTeX) no precedido por backslash
+%%----------------------------------------------------------------------
+\newcommand{\cmd}[1]{{\color[HTML]{008000}\bftt{#1}}} 
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Escribe el caracter backslash
+%%----------------------------------------------------------------------
+\newcommand{\bs}{\char`\\}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Escribe un comando (LaTeX) precedido de backslash
+%%----------------------------------------------------------------------
+\newcommand{\cmdbs}[1]{\cmd{\bs{}#1}} 
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Comandos requeridos por \cmdbegin y \cmdend
+%%----------------------------------------------------------------------
+\newcommand{\lcb}{\char '173}
+\newcommand{\rcb}{\char '175}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Escriben el inicio y fin - respectivamente - de un ambiente LaTeX
+%%----------------------------------------------------------------------
+\newcommand{\cmdbegin}[1]{\cmdbs{begin\lcb}\bftt{#1}\cmd{\rcb}}
+\newcommand{\cmdend}[1]{\cmdbs{end\lcb}\bftt{#1}\cmd{\rcb}}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Ambiente para generar código LaTeX y su resultado uno al lado del 
+%% otro enmarcados en un frame sensillo
+%%----------------------------------------------------------------------
+\newenvironment{latexPlusCodeLeftFrame}
+  {\VerbatimEnvironment
+   \begin{VerbatimOut}{example.out}}
+  {\end{VerbatimOut}
+   \setlength{\parindent}{0pt}
+   \fbox{\begin{tabular}{l|l}
+   \begin{minipage}{0.55\linewidth}
+     \inputminted[fontsize=\scriptsize,resetmargins]{latex}{example.out}
+   \end{minipage} &
+   \begin{minipage}{0.35\linewidth}
+     \setlength{\parskip}{6pt plus 1pt minus 1pt}%
+     \raggedright\scriptsize\input{example.out}
+   \end{minipage}
+   \end{tabular}}}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Idéntico al anterior pero sin frame
+%%----------------------------------------------------------------------
+\newenvironment{latexPlusCodeLeftnoFrame}
+  {\VerbatimEnvironment
+   \begin{VerbatimOut}{example.out}}
+  {\end{VerbatimOut}
+   \setlength{\parindent}{0pt}
+   \begin{tabular}{ll}
+   \begin{minipage}{0.55\linewidth}
+     \inputminted[fontsize=\scriptsize,resetmargins]{latex}{example.out}
+   \end{minipage} &
+   \begin{minipage}{0.35\linewidth}
+     \setlength{\parskip}{6pt plus 1pt minus 1pt}%
+     \raggedright\scriptsize\input{example.out}
+   \end{minipage}
+   \end{tabular}}
+%%----------------------------------------------------------------------
+
+%%----------------------------------------------------------------------
+%% Ambiente para generar el resultado de un código LaTeX seguido por 
+%% el código
+%%----------------------------------------------------------------------
+\newenvironment{latexPlusCodeBelow}
+  {\VerbatimEnvironment
+   \begin{VerbatimOut}{example.out}}
+  {\end{VerbatimOut}
+		\input{example.out}
+    \inputminted[fontsize=\scriptsize,resetmargins]{latex}{example.out}
+   }
+%%----------------------------------------------------------------------
+
+%%------------------------------------------
+%% Colores
+%%------------------------------------------
+\definecolorset{HTML}{}{}{ %
+	color1,423E3A;color2,ACB8F1;color3,FF1E12;color4,FF7600;color5,FF8012;myBlue,027FDF; %
+	myBlack,181818;myRed,AA3939;myGreen,19B170;myGray,181818;myOrange,FF6302;negative,181818; %
+	positive,AA3939;enlace,1D8AEC;url,000000;youtube,C4302B;codeback,A4DCF2;codeframe,0B2C39; %
+	structColor,201090;barColor,202122;backColor,8998B5;titlesColor,008100;blueR,1042A6; %
+	blueOctave,015794;hlOrange,FFAD7E;citeColor,AA3939 %
+}
+
+\definecolorset{rgb}{}{}{ %
+	signBlue,0, .25, .53;emeraldGreen,0, .79, .34;topaz,0, .6, .88; %
+	indigoDye,.05, .31, .55;indigo2,.13, .53, .41;blueSpider,.15, .27, .43; %
+	darkOliveGreen2,.74, .93, .41;ochre,.8, .47, .13;darkOrange,.8, .4, .0; %
+	skyblue6,.2, .6, .8;firebrick,.7, .13, .13;blueice,.85, .96, .94; %
+	lightcopper,.93, .76, .58
+}
+%%------------------------------------------

@@ -1,0 +1,56 @@
+\documentclass{article}
+
+\input{LaTeX2Code.tex}
+
+\author{MSc. Fausto M. Lagos S.}
+\title{Manual de los macros \bftt{LaTeX2Code.tex}}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	El conjunto de macros \bftt{LaTeX2Code.tex} permite documentar ejemplos de \LaTeX{} incluyendo el resultado del código y el código mismo en el documento pdf resultante. 
+\end{abstract}
+	
+	\section{A Modo de Instalación}
+		Para hacer uso de los macros de \bftt{LaTeX2Code} no hace falta desarrollar ningún proceso de instalación, simplemente lleve el archivo \bftt{LaTeX2Code.tex} a la raíz de su proyecto \LaTeX{} y agregue en el preámbulo \mintinline{latex}{\input{LaTeX2Code.tex}}.
+		
+	\section{Requerimientos}
+		El archivo \bftt{LaTeX2Code.tex} carga todos los paquetes necesarios para el uso de estos macros, define unos márgenes amplios para el documento que preferiblemente debe tratarse de un documento de la clase \bftt{article}, con un preámbulo tal como el presentado en seguida, estará listo para documentar cualquier ejemplo de \LaTeX{}.
+		\begin{minted}{latex}
+\documentclass{article}
+
+\input{LaTeX2Code.tex}
+
+\author{Su Nombre}
+\title{Un título atractivo}
+\date{\today}
+		\end{minted}
+		
+	\section{Comandos}
+	
+	\subsection{\cmdbs{bfcolor}}
+		Este comando recibe como entradas un color y un texto y genera el texto escrito en negrilla y del color indicado. e.g \mintinline{latex}{\bfcolor{cyan!50!gray}{Este es un texto}} genera \bfcolor{cyan!50!gray}{Este es un texto}.
+		
+	\subsection{\cmdbs{bftt}}
+		Toma como entrada un texto y genera el texto escrito en verbatim y negrilla. e.g. \mintinline{latex}{\bftt{Texto en verbatim y negrilla}} genera \bftt{Texto en verbatim y negrilla}. Este comando es ideal para resaltar nombres de archivos o partes de código que no necesariamente son comandos o ambientes.
+
+	\subsection{\cmdbs{keystroke}}
+		Recibe un caracter del teclado y generar una representación de la tecla correspondiente. e.g \mintinline{latex}{\keystroke{\%}} genera la representación \keystroke{\%}.
+		
+	\subsection{\cmdbs{keystrokebftt}}
+		Identico a \cmdbs{keystroke} pero en negrilla. e.g \mintinline{latex}{\keystrokebftt{k}} genera \keystrokebftt{k}.
+		
+	\subsection{\cmdbs{cmd}}
+		Ideal para escribir los nombres de comandos sin que estén precedidos por backslash. e.g. \mintinline{latex}{\cmd{operatorname}} genera \cmd{operatorname}.
+		
+	\subsection{\cmdbs{cmdbs}}
+		Escribe el nombre de un comando precedido de backslash. e.g con \mintinline{latex}{\cmdbs{frac}} obtiene \cmdbs{frac}.
+		
+	\subsection{\cmdbs{bs}}	
+		Escribe el carácter backslash.
+		
+	\subsection{\cmdbs{cmdbegin} y \cmdbs{cmdend}}	
+		Escriben respectivamente el inicio y fin de cualquier ambiente \LaTeX{}. 
+\end{document}
