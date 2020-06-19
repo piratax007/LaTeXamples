@@ -1,0 +1,62 @@
+\documentclass{article}
+
+\input{preamble.tex}
+\input{Tikz2Code.tex}
+
+\title{Manual \bftt{TikZ2Code.tex}}
+\author{MSc. Fausto M. Lagos S.}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+	\bftt{TikZ2Code.tex} es un conjunto de macros desarrollados para documentar la construcción de figuras con el paquete \bftt{TikZ}, estos macros permiten desarrollar el código de la figura \bftt{TikZ} y agregar de forma automática ésta en un ambiente \bftt{figure} seguido del código o generar un archivo auxilar con el código para insertarlo en el documento en la posición elegida por el autor.
+\end{abstract}
+
+\section{A modo de instalación}
+
+Para utilizar los macros \bftt{TikZ2code} no hace falta realizar ningún procedimiento de instalación, basta con incluir \mintinline{latex}{\input{TikZ2Code.tex}} - teniendo el correspondiente archivo en la raíz del proyecto - en el preámbulo para que se disponga de los ambientes \cmdbegin{tikzPlusCode} y \cmdbegin{tikzToCode}
+
+\section{Uso del ambiente \bftt{tikzPlusCode}}
+
+Este ambiente crea una figura seguida del código \textbf{TikZ} requerido para obtenerla.
+
+\begin{exampletwouptinynoframe}
+\begin{tikzPlusCode}[Uso de \cmdbs{foreach}]
+\begin{tikzpicture}
+  \foreach \x in {1, 2, ..., 5}{
+    \draw (\x, 0) circle[radius = 1cm];
+  }
+\end{tikzpicture}
+\end{tikzPlusCode}
+\end{exampletwouptinynoframe}
+
+El ambiente \bftt{tikzPlusCode} recibe como parámetro de entrada obligatorio el subtítulo (caption) de la figura, en su interior se define un ambiente \bftt{tikzpicture} con el código de la figura.
+
+\section{Uso del ambiente \bftt{tikzToCode}}
+
+El ambiente \bftt{tikzToCode} recibe como parámetro de entrada obligatorio un ID para identificar el archivo \bftt{.out} que contendrá el código de la figura \bftt{TikZ}. Este ambiente puede ubicarse o no dentro de un ambiente figure y para presentar el código correpondiente a la figura \bftt{TikZ} debe usarse el comando \mintinline{latex}{\inputminted{latex}{ID.out}} en cualquier parte del documento.
+
+\subsection{Obtensión de la gráfica \bftt{TikZ} con el ambiente \bftt{tikzToCode}}
+
+\begin{exampletwouptinynoframe}
+\begin{tikzToCode}[idCode]
+\begin{tikzpicture}
+  \foreach \x in {1, 2, ..., 5}{
+    \draw (\x, 0) circle[radius = 1cm];
+  }
+\end{tikzpicture}	
+\end{tikzToCode}
+\end{exampletwouptinynoframe}
+
+\subsection{Obtensión del código generado con el ambiente \bftt{tikzToCode}}
+
+\begin{exampletwouptinynoframe}
+\inputminted{latex}{idCode.out}
+\end{exampletwouptinynoframe}
+
+\begin{latexPlusCode}
+esta es una prueba $x^2$
+\end{latexPlusCode}
+\end{document}

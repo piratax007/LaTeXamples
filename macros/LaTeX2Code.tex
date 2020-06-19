@@ -12,8 +12,10 @@
 \RequirePackage{xcolor}
 \RequirePackage{tikz}
 \usetikzlibrary{shadows}
-\lfoot{Este ejemplo esta puesto a disposición mediante la licencia GPLv3, usted es libre de usarlo, estudiarlo, modificarlo o compartirlo siempre que las obras derivadas las comparta bajo los mismos términos y mencione al autor original.}
-\pagenumbering{gobble}
+\rhead{\thepage}
+\cfoot{}
+\rfoot{}
+\lfoot{Este ejemplo esta publicado mediante la licencia LPPL v1.3c, usted es libre de usarlo, estudiarlo, modificarlo o compartirlo siempre que las obras derivadas las comparta bajo los mismos términos y mencione al autor original.}
 \renewcommand{\headrulewidth}{0pt}
 
 \graphicspath{{./images/}}
@@ -21,7 +23,7 @@
 %%------------------------------------------
 %% Márgenes
 %%------------------------------------------
-\RequirePackage[top = 1.5cm, bottom = 1.5cm, left = 1.5cm, right = 1.5cm, foot = .5cm]{geometry}
+\RequirePackage[top = 1cm, bottom = 1.5cm, left = 1.5cm, right = 1.5cm, foot = .5cm, include head]{geometry}
 %%------------------------------------------
 
 %%----------------------------------------------------------------------

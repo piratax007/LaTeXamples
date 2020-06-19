@@ -53,4 +53,34 @@
 		
 	\subsection{\cmdbs{cmdbegin} y \cmdbs{cmdend}}	
 		Escriben respectivamente el inicio y fin de cualquier ambiente \LaTeX{}. 
+		
+	\section{Ambientes}
+	
+	\subsection{\cmdbegin{latexPlusCodeLeftFrame}}
+		Este ambienge genera una muestra de código \LaTeX{} seguida - a la derecha - por el resultado de su ejecusión, todo enmarcado en un frame sencillo.
+		
+		\begin{latexPlusCodeLeftFrame}
+\[
+  \left|
+    \begin{array}{ccc}
+      1 & 2 & 3 \\
+      4 & 5 & 6 \\
+      7 & 8 & 0
+    \end{array}
+  \right|
+\]
+		\end{latexPlusCodeLeftFrame}
+		
+	\subsection{\cmdbegin{latexPlusCodeLeftnoFrame} y \cmdbegin{latexPlusCodeBelow}}
+		El primero de éstos actua idéntico al anterior pero no dibuja el frame que enmarca al código y el resultado, el segundo elimina el frame y ubica el código debajo del resultado.
+		
+	\section{Otros}
+		\subsection{\cmdbs{mintinline} y \cmdbegin{minted}}
+			Este comando y \mintinline{latex}{\mintinline{latex}{code}} permite agregar código \LaTeX{} en línea con el texto, que no este contemplado dentro de los macros de arriba y el ambiente \mintinline{latex}{\begin{minted}{latex}} hace lo propio pero con bloques de código.
+		
+		\subsection{Licencia}
+			Agregando \mintinline{latex}{\thispagestyle{fancy}} justo después de \cmdbs{maketitle} se agrega una nota en el pié de la primera página indicando que el documento y su código fuente estan disponible bajo los términos de la licencia LPPL v1.3c.
+		
+	\section{Licencia}
+		\bftt{LaTeX2Code} es un conjunto de macros publicado mediante la licencia LPPL v1.3c, usted es libre de usarlo, estudiarlo, modificarlo o compartirlo siempre que las obras derivadas las comparta bajo los mismos términos y mencione al autor original.
 \end{document}
