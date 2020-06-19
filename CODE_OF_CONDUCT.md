@@ -50,25 +50,26 @@ electrónico oficial, la publicación vía redes sociales o actuar como un ponen
 del proyecto en un evento online u offline. Las formas de representación autorizadas
 deben estar debidamente consensuadas por los mantenedores.
 
-## Enforcement
+## Aplicación
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported by contacting the project team at piratax007@protonmail.ch. All
-complaints will be reviewed and investigated and will result in a response that
-is deemed necessary and appropriate to the circumstances. The project team is
-obligated to maintain confidentiality with regard to the reporter of an incident.
-Further details of specific enforcement policies may be posted separately.
+Comportamientos de abuso, acoso o cualquier otro comportamiento inaceptable debe ser
+reportado contactando al líder del proyecto en piratax007@protonmail.ch. Todos los
+informes serán revisados e investigados y tendrán respuesta de acuerdo como se
+considere necesario y bajo circunstancias apropiadas. El equipo de mantenedores esta 
+obligado a mantener la confidencialidad con quien considere reportar un insidente.
+Políticas que vayan más allá del alcance de este Código de Conducta seran publicadas
+de forma separada y oportuna.
 
-Project maintainers who do not follow or enforce the Code of Conduct in good
-faith may face temporary or permanent repercussions as determined by other
-members of the project's leadership.
+Los mantenedores del proyecto que no cumplan o hagan cumplir este Código de Conducta
+de buena fé afrontarán repercusiones temporales o permanentes de acuerdo a como 
+determine el líder del proyecto.
 
-## Attribution
+## Attribución
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
-available at https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
+Esto Código de Conducta es una adaptación de [Contributor Covenant][homepage], version 1.4,
+disponible en https://www.contributor-covenant.org/version/1/4/code-of-conduct.html
 
 [homepage]: https://www.contributor-covenant.org
 
-For answers to common questions about this code of conduct, see
+Para respuestas a preguntas comunes sobre este Código de Conducta ver:
 https://www.contributor-covenant.org/faq
