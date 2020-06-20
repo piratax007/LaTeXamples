@@ -1,0 +1,112 @@
+%----------------------------------------------------
+% Desigualdades e inecuaciones
+% MSc. Fausto M. Lagos Suárez
+% @piratax007 - V1.1.3 - 2019
+% LPPL v1.3c
+%----------------------------------------------------
+
+% Paquetes
+\usepackage{amsgen,amsmath,amstext,amsbsy,amsopn,tikz,amssymb,tkz-linknodes}
+\usepackage{xstring}
+
+% Colores
+\definecolor{myBlue}{HTML}{027FDF}
+\definecolor{negative}{HTML}{181818}
+\definecolor{positive}{HTML}{AA3939}
+
+% Recta Real
+\newcommand{\reaLine}[2]{
+  \node (li) at (#1 - 1.5, 0) {};
+  \node (ls) at (#2 + 1.5, 0) {$\mathbb{R}$};
+	\draw [>=stealth, <->] (li) -- (ls);
+}
+
+%----------------------------------------------------
+% Intervalo
+% #1 cota inferior
+% #2 cota superior
+% #3 posición vertical del intervalo
+% #4 fill o fill = none o <- o ->, tipo de cota
+% #5 fill o fill = none, tipo de cota
+% #6 nonInf o inf, tipo de intervalo
+% #7 color
+\newcommand{\interval}[7]{
+    \IfEqCase {#6}{
+        {nonInf}{
+          \node [circle, draw, #4, line width = 1.5pt, color = #7, inner sep = 0pt, minimum size = 5pt] (ci) at (#1, #3) {};
+          \node [circle, draw, #5, line width = 1.5pt, color = #7, inner sep = 0pt, minimum size = 5pt] (cs) at (#2, #3) {};
+          \draw [line width = 1.5pt, color = #7] (ci) -- (cs);
+          \draw (ci) -- (#1, -.2);
+          \node (tag) at (#1, -.4) {#1};
+          \draw (cs) -- (#2, -.2);
+          \node (tag) at (#2, -.4) {#2};
+        }{inf}{
+        	  \IfEqCase {#4}{
+            	{<-}{
+			        \node [circle, draw, #5, line width = 1.5pt, color = #7, inner sep = 0pt, minimum size = 5pt] (cs) at (#2, #3) {};
+                    \draw [>=stealth, #4, line width = 1.5pt, color = #7] (#1 - 1.5, #3) -- (cs);
+                    \draw (cs) -- (#2, -.2);
+                    \node (tag) at (#2, -.4) {#2};
+                }{->}{
+                	\node [circle, draw, #5, line width = 1.5pt, color = #7, inner sep = 0pt, minimum size = 5pt] (ci) at (#1, #3) {};
+                    \draw [>=stealth, ->, line width = 1.5pt, color = #7] (ci) -- (#2 + 1.5, #3);
+                    \draw (ci) -- (#1, -.2);
+                    \node (tag) at (#1, -.4) {#1};
+                }
+            }
+        }
+        }[\PackageError{tree}{Undefined option to intervals: #6}{}]
+}
+%----------------------------------------------------
+
+%----------------------------------------------------
+% Cementerio
+
+% Valores de referencia
+% #1 lista de los valores de referencia - entrecomillados y separados por coma
+% #2 número de valores de referencia en #1, contados desde cero
+% #3 número de inecuaciones
+\newcommand{\refVals}[3]{
+  \def\rV{{#1}}
+  \foreach \i in {0,1,...,#2}{
+    \pgfmathsetmacro{\rVIndex}{\rV[\i]}
+    \coordinate (c\i) at (\rVIndex, 0);
+    \draw[gray!75] (\rVIndex, -.2) node[below] {\small{\rVIndex}} -- (\rVIndex, #3*.75);
+  }
+}
+
+% Inecuación
+% #1 lista de signos de la inecuación - entrecomillados y separados por coma
+% #2 número de signos en #1, contados desde cero
+% #3 número de la inecuación numerada de abajo para arriba
+% #4 la inecuación en escritura matemática
+\newcommand{\inequality}[4]{
+  \def\sI{{#1}}
+  \node[left] at ($(li) + (0, #3*.5)$) {\tiny{#4}};
+  \draw[>=stealth, <->, gray!75] ($(li) + (0, #3*.5)$) -- ($(ls) + (0, #3*.5)$);
+  \foreach \i in {0,1,...,#2}{
+    \pgfmathsetmacro{\sIndex}{\sI[\i]}
+    \IfEq {\i}{0}{
+        \path ($(li)+(0, #3*.5)$) -- ($(c0)+(0, #3*.5)$) node[midway, above, myBlue] {$\sIndex$};
+      }{\IfEq {\i}{#2}{
+        \path ($(c\the\numexpr\i-1)+(0, #3*.5)$) -- ($(ls)+(0, #3*.5)$) node[midway, above, myBlue] {$\sIndex$};
+      }{\path ($(c\the\numexpr\i-1)+(0, #3*.5)$) -- ($(c\i)+(0, #3*.5)$) node[midway, above, myBlue] {$\sIndex$};}
+      }
+    }
+}
+
+% Respuesta
+\newcommand{\solution}[3]{
+  \def\sI{{#1}}
+  \node[left] at (li) {\tiny{#3}};
+  \foreach \i in {0,1,...,#2}{
+    \pgfmathsetmacro{\sIndex}{\sI[\i]}
+    \IfEq {\i}{0}{
+        \path (li) -- (c0) node[midway, above, magenta!75] {$\sIndex$};
+      }{\IfEq {\i}{#2}{
+        \path (c\the\numexpr\i-1) -- (ls) node[midway, above, magenta!75] {$\sIndex$};
+      }{\path (c\the\numexpr\i-1) -- (c\i) node[midway, above, magenta!75] {$\sIndex$};}
+      }
+    }
+}
+%----------------------------------------------------
