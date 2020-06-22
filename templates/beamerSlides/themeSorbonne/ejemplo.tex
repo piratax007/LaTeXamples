@@ -1,0 +1,109 @@
+%%--------------------------------------------------------------------
+%% MSc. Fausto M. Lagos S.
+%% @piratax007 - 2020 - GPLv3+
+%% Presentación de ejemplo de uso de la plantilla beamerthemesorbonne
+%%--------------------------------------------------------------------
+
+\documentclass[compress,xcolor=table]{beamer}
+
+%% Paquetes adicionales
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{datetime}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{subcaption}
+\usepackage{tikz}
+\usetikzlibrary{calc, arrows, babel}
+
+%% Opciones para el comando \usetheme
+%%  - nosectionpages: Sin página entre secciones
+%%  - flama: Utilizar la fuente flama, requiere xelatex/lualatex + la fuente para poder compilar
+%%  - compressminiframes: Lleva al encabezado las marcas de página
+\usetheme[compressminiframes]{sorbonne}
+
+%% Página de Título
+\title{Título de la presentación}
+\foottitle{Título en el pie de la diapositiva} % Opcional, se imprime al final de las diapositivas, por defecto toma el mismo título.
+\subtitle{Subtítulo de la presentación} % Opcional
+\date{\today}
+\author{Autor} % puede utilizar \\ para agregar otros detalles del autor
+\institute{Filiación} % Opcional
+
+% Biblatex (opcional)
+\setbeamertemplate{bibliography item}{\rmfamily\insertbiblabel}
+\usepackage[backend=bibtex, style=numeric, citestyle=numeric]{biblatex}
+\bibliography{library.bib}
+\renewcommand*{\bibfont}{\footnotesize}
+
+
+%%-------------------------------------------
+%% DIAPOSITIVAS
+%%-------------------------------------------
+
+\begin{document}
+
+\begin{frame}[plain]
+	\titlepage
+	\setcounter{framenumber}{0}
+\end{frame}
+
+\section{Introducción} \subsection{}
+
+\begin{frame}{Aquí va el título de la diapositiva} % puede utilizar \insertsection o \insertsubsection para incluir el mísmo título de sección o subsección
+	Esta presentación utiliza la plantilla \textbf{beamerthemesorbonne.sty}. Para cambiar el \textit{background} de la página de título reemplace el archivo \emph{background.pdf} en el directorio \emph{images}.
+	
+	\begin{alertblock}{Directorio images}
+		Todas las imágenes que vaya a utilizar en la presentación póngalas en el directorio \textbf{images}.
+	\end{alertblock}
+	
+	Para modificar el \textbf{logo} que aparece en la esquina superior derecha de cada diapositiva, ponga la imágen en el directorio \emph{images} y modifique la línea 273 en la sección \textit{Frametitle} del archivo \emph{beamerthemesorbonne.sty}.
+	
+	Para modificar los colores altere los valores de los colores en la sección \emph{Color} del archivo \emph{beamerthemesorbone.sty}. Si altera los nombres tendrá que modificar también los nombres en la lista de comandos \emph{setbeamercolor}.
+\end{frame} 
+
+\section{Utilice columnas} \subsection{}
+
+\begin{frame}{Título de la diapositiva}
+	\begin{columns}
+  		\begin{column}{.45\textwidth}
+  			Contenido de la primera columna
+  		\end{column}
+  		\begin{column}{.45\textwidth}
+  			Contenido de la segunda columna
+  		\end{column}
+  \end{columns}
+\end{frame}
+
+\section{Utilice bloques}
+
+\begin{frame}[fragile]{Bloques}
+	
+	\begin{block}{Título del bloque}
+		Contenido del bloque
+	\end{block}
+	
+	\begin{exampleblock}{Título del bloque} 
+		Contenido del bloque
+	\end{exampleblock}
+	
+	\begin{alertblock}{Título del bloque}
+		Contenidod el bloque
+	\end{alertblock}
+\end{frame}
+
+\begin{frame}{citas bibliográficas}
+	Esta diapositiva muestra el ejemplo de uso de citas \cite{Leithold}
+\end{frame}
+
+\section{Referencias}
+
+\begin{frame}[allowframebreaks]{Referencias}
+	\printbibliography%[heading=none]
+\end{frame}
+
+\end{document}
+

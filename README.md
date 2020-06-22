@@ -42,10 +42,10 @@ La estructura de este proyecto corresponde a un conjunto de directorio que - de 
 Se agregarán nuevos directorios en la medida en que los mantenedores lo consideren conveniente.
 
 ## Líderes de proyecto <a name = "leaders"></a>
-![manteiner leader](https://img.shields.io/badge/manteiner-LEADER-lima) [MSc. Fausto M. Lagos S.](https://github.com/piratax007)
+![manteiner leader](https://img.shields.io/badge/contributions-5-lima) [MSc. Fausto M. Lagos S.](https://github.com/piratax007)
 
 ## Mantenedores <a name = "mainteiners"></a>
-![manteiner voluntary](https://img.shields.io/badge/manteiner-VOLUNTARY-blue) Aquí va su nombre
+![manteiner voluntary](https://img.shields.io/badge/contributions-acount-blue) Aquí va su nombre
 
 ## contribuidores <a name = "contributors"></a>
 ![contributor voluntary](https://img.shields.io/badge/contributions-acount-red) Aquí va su nombre
