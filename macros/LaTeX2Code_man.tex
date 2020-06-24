@@ -17,7 +17,7 @@
 		Para hacer uso de los macros de \bftt{LaTeX2Code} no hace falta desarrollar ningún proceso de instalación, simplemente lleve el archivo \bftt{LaTeX2Code.tex} a la raíz de su proyecto \LaTeX{} y agregue en el preámbulo \mintinline{latex}{\input{LaTeX2Code.tex}}.
 		
 	\section{Requerimientos}
-		El archivo \bftt{LaTeX2Code.tex} carga todos los paquetes necesarios para el uso de estos macros, define unos márgenes amplios para el documento que preferiblemente debe tratarse de un documento de la clase \bftt{article}, con un preámbulo tal como el presentado en seguida, estará listo para documentar cualquier ejemplo de \LaTeX{}.
+		El archivo \bftt{LaTeX2Code.tex} carga todos los paquetes necesarios para el uso de estos macros y define unos márgenes amplios para el documento que preferiblemente debe tratarse de un documento de la clase \bftt{article}. Con un preámbulo tal como el presentado en seguida estará listo para documentar cualquier ejemplo de \LaTeX{}.
 		\begin{minted}{latex}
 \documentclass{article}
 
@@ -37,7 +37,7 @@
 		Toma como entrada un texto y genera el texto escrito en verbatim y negrilla. e.g. \mintinline{latex}{\bftt{Texto en verbatim y negrilla}} genera \bftt{Texto en verbatim y negrilla}. Este comando es ideal para resaltar nombres de archivos o partes de código que no necesariamente son comandos o ambientes.
 
 	\subsection{\cmdbs{keystroke}}
-		Recibe un caracter del teclado y generar una representación de la tecla correspondiente. e.g \mintinline{latex}{\keystroke{\%}} genera la representación \keystroke{\%}.
+		Recibe un carácter del teclado y genera una representación de la tecla correspondiente. e.g \mintinline{latex}{\keystroke{\%}} genera la representación \keystroke{\%}.
 		
 	\subsection{\cmdbs{keystrokebftt}}
 		Identico a \cmdbs{keystroke} pero en negrilla. e.g \mintinline{latex}{\keystrokebftt{k}} genera \keystrokebftt{k}.
@@ -57,7 +57,7 @@
 	\section{Ambientes}
 	
 	\subsection{\cmdbegin{latexPlusCodeLeftFrame}}
-		Este ambienge genera una muestra de código \LaTeX{} seguida - a la derecha - por el resultado de su ejecusión, todo enmarcado en un frame sencillo.
+		Este ambienge genera una muestra de código \LaTeX{} seguida - a la derecha - por el resultado de su ejecución, todo enmarcado en un frame sencillo.
 		
 		\begin{latexPlusCodeLeftFrame}
 \[
@@ -72,14 +72,14 @@
 		\end{latexPlusCodeLeftFrame}
 		
 	\subsection{\cmdbegin{latexPlusCodeLeftnoFrame} y \cmdbegin{latexPlusCodeBelow}}
-		El primero de éstos actua idéntico al anterior pero no dibuja el frame que enmarca al código y el resultado, el segundo elimina el frame y ubica el código debajo del resultado.
+		El primero de estos actúa idéntico al anterior pero no dibuja el frame que enmarca al código y el resultado. El segundo elimina el frame y ubica el código debajo del resultado.
 		
 	\section{Otros}
 		\subsection{\cmdbs{mintinline} y \cmdbegin{minted}}
-			Este comando y \mintinline{latex}{\mintinline{latex}{code}} permite agregar código \LaTeX{} en línea con el texto, que no este contemplado dentro de los macros de arriba y el ambiente \mintinline{latex}{\begin{minted}{latex}} hace lo propio pero con bloques de código.
+			Este comando y \mintinline{latex}{\mintinline{latex}{code}} permiten agregar código \LaTeX{} en línea con el texto que no estén contemplados dentro de los macros de arriba y el ambiente \mintinline{latex}{\begin{minted}{latex}} hace lo propio pero con bloques de código.
 		
 		\subsection{Licencia}
-			Agregando \mintinline{latex}{\thispagestyle{fancy}} justo después de \cmdbs{maketitle} se agrega una nota en el pié de la primera página indicando que el documento y su código fuente estan disponible bajo los términos de la licencia LPPL v1.3c.
+			Agregando \mintinline{latex}{\thispagestyle{fancy}} justo después de \cmdbs{maketitle} se agrega una nota en el pie de la primera página indicando que el documento y su código fuente están disponible bajo los términos de la licencia LPPL v1.3c.
 		
 	\section{Licencia}
 		\bftt{LaTeX2Code} es un conjunto de macros publicado mediante la licencia LPPL v1.3c, usted es libre de usarlo, estudiarlo, modificarlo o compartirlo siempre que las obras derivadas las comparta bajo los mismos términos y mencione al autor original.
