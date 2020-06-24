@@ -42,13 +42,13 @@ La estructura de este proyecto corresponde a un conjunto de directorio que - de 
 Se agregarán nuevos directorios en la medida en que los mantenedores lo consideren conveniente.
 
 ## Líderes de proyecto <a name = "leaders"></a>
-Aquí llegarás cuando tu conteo de contribuciones llegue a 50 y hayas resuelto 25 pull requests.
+Aquí llegará cuando su conteo de contribuciones llegue a 50 y haya resuelto 25 pull requests.
 
 *  ![manteiner leader](https://img.shields.io/badge/contributions-5-lima) [MSc. Fausto M. Lagos S.](https://github.com/piratax007)
 *  ![manteiner leader](https://img.shields.io/badge/contributions-0-lima) [Ing. German D. Martinez S.](https://github.com/DavidMS73)
 
 ## Mantenedores <a name = "mainteiners"></a>
-Aquí llegarás cuando tu conteo de contribuciones llegue a 25
+Aquí llegará cuando su conteo de contribuciones llegue a 25
 
 * ![manteiner voluntary](https://img.shields.io/badge/contributions-acount-blue) Aquí va su nombre
 
