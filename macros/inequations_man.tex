@@ -3,9 +3,10 @@
 \usepackage[spanish]{babel}
 \usepackage{graphicx}
 \author{MSc. Fausto M. Lagos Suárez}
-\title{Comandos para inecuciones y desigualdades\footnote{V 1.1.3 - 2019 - @piratax007 - LPPL 1.3c}}
+\title{Comandos para inecuaciones y desigualdades\footnote{V 1.1.3 - 2019 - @piratax007 - LPPL 1.3c}}
 
-\input{preamble.tex}
+\input{LaTeX2Code.tex}
+\input{TikZ2Code.tex}
 \input{inequations.tex}
 
 \begin{document}
@@ -16,7 +17,7 @@
 \end{abstract}
 
 \section{A modo de instalación}
-Este conjunto de comandos no es un paquete \LaTeX{} por lo que no requiere de un proceso de instalación particular, para disponer de los comandos aquí presentados puede agregar el archivo \cmd{inequations.tex} al directorio raíz de su proyecto \LaTeX{} y el comando \cmdbs{input\{inequations.tex\}} en el preámbulo de su documento o bien copiar el contenido de este archivo a su propio preámbulo.
+Este conjunto de comandos no es un paquete \LaTeX{} por lo que no requiere de un proceso de instalación particular. Para disponer de los comandos aquí presentados puede agregar el archivo \cmd{inequations.tex} al directorio raíz de su proyecto \LaTeX{} y el comando \cmdbs{input\{inequations.tex\}} en el preámbulo de su documento o bien copiar el contenido de este archivo a su propio preámbulo.
 
 \section{Colores predefinidos}
 Este conjunto de comandos tiene predefinidos los colores \cmd{myBlue} \tikz \fill[myBlue] (0, 0) rectangle (.5, .5);, \cmd{positive} \tikz \fill[positive] (0, 0) rectangle (-.5, .5); y \cmd{negative} \tikz \fill[negative] (0, 0) rectangle (-.5, .5);, sin embargo usted puede hacer uso de cualquier otro color.
@@ -27,7 +28,7 @@ El archivo \cmd{inequations.tex} carga el paquete xstring, tikz y las librerías
 
 \subsection{\cmdbs{reaLine\{li\}\{ls\}}} Presenta la recta real desde \cmd{li} - límite inferior - hasta \cmd{ls} - límite superior -. Realmente este comando construye un segmento rectilíneo con extremos $\text{li} - 1.5$ y $\text{ls} + 1.5$, terminación en punta de flecha en los dos extremos y la etiqueta $\mathbb{R}$ a la derecha \cmd{ls}.
 
-\begin{tikzPlusCode}[Recta real entre $-2$ y $2$.]
+\begin{tikzPlusCode}[Recta real entre $-2$ y $2$]
 \begin{tikzpicture}
   \reaLine{-2}{2}
 \end{tikzpicture}
@@ -71,19 +72,19 @@ Para representar un \emph{intervalo infinito} se indicarán los dos extremos - e
 \end{tikzpicture}
 \end{tikzPlusCode}
 
-\subsection{Solución de inecuaciones} El archivo \cmd{inecuacions.tex} contiene tres comandos adicionales para la representación gráfica de la solución de inecuaciones no lineales:
+\subsection{Solución de inecuaciones} El archivo \cmd{inequations.tex} contiene tres comandos adicionales para la representación gráfica de la solución de inecuaciones no lineales.
 
 \subsubsection{\cmdbs{refVals}} Este comando recibe tres parámetros de entrada, una lista con los valores de referencia (escritos entre doble comilla y separados por coma), la dimensión de la lista de valores de referencia (número de valores de referencia contados desde cero) y el número de inecuaciones que van a representarse.
 
-\subsubsection{\cmdbs{inequality}} Este comando se utiliza para indicar los signos de cada una de las inecuaciones lineales que conforman la solución, utiliza cuatro parámetros de entrada
+\subsubsection{\cmdbs{inequality}} Este comando se utiliza para indicar los signos de cada una de las inecuaciones lineales que conforman la solución. Utiliza cuatro parámetros de entrada.
   \begin{enumerate}
     \item La lista de signos ordenados de izquierda a derecha. Deben indicarse entre comilla doble y separados por coma.
     \item La dimensión de la lista (número de signos contados desde cero).
-    \item El número de la inecuación que se esta representando contadas desde la que se presentará más abajo hasta la que se presentará en la parte superior del diagrama.
+    \item El número de la inecuación que se está representando contadas desde la que se presentará más abajo hasta la que se presentará en la parte superior del diagrama.
     \item La etiqueta de la inecuación escrita en modo matemático.
   \end{enumerate}
 
-\subsubsection{\cmdbs{solution}} Este comando presenta los signos de la solución general de la inecuación sobre la recta real en color magenta, este comando tiene como parámetros de entrada:
+\subsubsection{\cmdbs{solution}} Este comando presenta los signos de la solución general de la inecuación sobre la recta real en color magenta. Este comando tiene como parámetros de entrada:
   \begin{enumerate}
     \item La lista de signos ordenados de izquierda a derecha. Deben indicarse entre comilla doble y separados por coma.
     \item La dimensión de la lista (número de signos contados desde cero).
