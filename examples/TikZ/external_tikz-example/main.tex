@@ -1,0 +1,161 @@
+%% -------------------------------------------------------------------------
+%% Este es un ejemplo de cómo utilizar la librería external del paquete
+%% tikz para generar archivos de imagen con las gráficas desarrolladas en 
+%% el ambiente tikzpicture, en Overleaf
+%% -------------------------------------------------------------------------
+%% 2017 por Fausto M. Lagos S. <piratax007@protonmail.ch>
+%% 
+%% Este trabajo puede ser distribuido o modificado bajo los
+%% términos y condiciones de la LaTeX Project Public License (LPPL) v1.3C, 
+%% o cualquier versión posterior. La última versión de esta licencia
+%% puede verse en:
+%% http://www.latex-project.org/lppl.txt
+%% 
+%% Usted es libre de usarlo, modificarlo o distribuirlo siempre que se
+%% respeten los términos de la licencia y se reconozca al autor original
+%% ----------------------------------------------------------------------
+
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[spanish]{babel}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+%% ----------------------------------------------------------------------
+%% Cargar lo necesario para externalizar las figuras tikz
+\usepackage{tkz-fct}
+\usetikzlibrary{external}
+\tikzexternalize[prefix = tikz/] % activa la externacionalización y genera las imágenes en el directorio tikz
+%% ----------------------------------------------------------------------
+
+\usepackage{vmargin} % Paquete para configurar márgenes
+\setmargins{2.5cm} % margen izquierdo
+{1.2cm} % Margen superior
+{14.7cm} % Ancho del área de impresión
+{23.42cm} % Largo del área de impresión
+{1cm} % Espacio de encabezado
+{1cm} % Espacio entre encabezado y texto
+{0pt} % Espacio de pie de página
+{1.5cm} % Espacio entre el texto y el pie de pagina
+\title{Uso de la librería \texttt{external} del paquete \texttt{tikz}}
+\author{Mg. Fausto Mauricio Lagos Suárez}
+\date{\today}
+
+%% ----------------------------------------------------------------------
+%% Definir el formato de externalización de las figuras tikz
+%% ----------------------------------------------------------------------
+%% formato png
+\tikzset{
+	png export/.style={
+		external/system call/.add=
+		{}
+		{; convert -density 300 -transparent white "\image.pdf" -quality 100 "\image.png";},
+		%
+		/pgf/images/external info,
+		/pgf/images/include external/.code={%
+			\includegraphics
+			[width=\pgfexternalwidth,height=\pgfexternalheight]
+			{##1.png}%
+		}
+	}
+}
+%% ----------------------------------------------------------------------
+%% formato jpg
+\tikzset{
+	eps export/.style={
+		external/system call/.add=
+		{}
+		{; convert -density 300 "\image.pdf" -quality 100 "\image.eps";},
+		%
+		/pgf/images/external info,
+		/pgf/images/include external/.code={%
+			\includegraphics
+			[width=\pgfexternalwidth,height=\pgfexternalheight]
+			{##1.eps}%
+		}
+	}
+}
+%% ----------------------------------------------------------------------
+
+\begin{document}
+\maketitle
+
+La librería \texttt{external} del paquete \texttt{tikz} permite, a partir de las gráficas generadas en el ambiente \texttt{tikzpicture}, crear archivos de imágen (pdf, png, jpg, etc).
+
+\paragraph{¿Pará qué generar archivos externos?} Existen diversas razones para querer generar archivos de imagen externos, algunas de estas razones son:
+\begin{enumerate}
+	\item Poder utilizar las imágenes generadas con tikz en apliaciones de terceros diferentes a documentos \LaTeX{} o donde el ambiente de compilación de \LaTeX{} no este disponible (compatibilidad).
+    \item Mejorar el rendimiento del proceso de compilación. Cuando un documento \LaTeX{} contiene muchas gráficas \texttt{tikz} o gráficas muy elaboradas, el tiempo de compilación puede ampliarse considerablemente, la exportación permite que se reemplace automáticamente las imágenes generadas con \texttt{tikz} por los archivos de imagen externos de tal forma que el proceso de compilación tarda menos tiempo en desarrollarse.
+\end{enumerate}
+
+\paragraph{¿Qué se necesita?} En una distribución local, además del paquete \texttt{tikz} es necesario activar la configuración \texttt{write18}\footnote{por lo general basta con agregar \texttt{--write18-enable}} en el sistema de compilación \texttt{pdflatex} del editor elegido - en cada editor la ubicación de esta configuración es diferente. En el caso de \textbf{Overleaf} \href{https://www.overleaf.com/help/205-i-have-a-lot-of-tikz-matlab2tikz-or-pgfplots-figures-so-im-getting-a-compilation-timeout-can-i-externalise-my-figures#.WZ5KK3UjFQI}{este artículo} (en inglés) explica detalladamente cómo hacerlo, a continuación una rápida traducción al español.
+
+\begin{enumerate}
+	\item Agregue al árbol de archivos del proyecto un directorio para almacenar las imágenes generadas, en este ejemplo el directorio es \texttt{tikz}. Dentro de este directorio agregue un archivo \textit{dummy} que no es necesario que contenga nada, en este ejemplo el archivo \texttt{foo.txt}.
+    \item Cargue el paquete \texttt{tikz} (o cualquier de sus derivados) y la libería \texttt{external}. Revise las líneas 24 - 29 de este ejemplo.
+    \item Por defecto las figuras \texttt{tikz} se exportan en formato pdf, puede modificar esto agregando alguna configuración como las presentadas en las líneas 44 - 78 de este ejemplo. Puede utilizar un formato adicional a pdf para la exportación. Ver el código de la Figura 1.
+   \item Los archivos de salida no se ven en el árbol de archivos del proyecto, para poder obtener los archivos de imágen externos debe descargar el proyecto utilizando la opción \emph{Input and Output Files} del menú DOWNLOAD AS ZIP en el apartado PROJECT. Al momento de descomprimir el archivo zip descargado encontrará las imágenes generadas en los formatos elegidos.
+\end{enumerate}
+
+\paragraph{Observaciones:}
+\begin{enumerate}
+	\item \texttt{external} exportará todas las figuras desarrolladas en el ambiente \texttt{tikzpicture}.
+    \item Si alguna de las figuras en el documento no debe ser exportada utilice \texttt{tikzexternaldisable} precediendo al ambiente \texttt{tikzpicture} respectivo. Ver el código de la Figura 2.
+    \item El comando \texttt{tikzexternaldisable} desactiva únicamente la exportación de la figura en la que se llama a este comando, las figuras siguientes serán exportadas. Ver el código de la Figura 3.
+    \item Cada archivo de imágen puede tener un formato de archivo diferente.
+    \item Cada archivo de imágen exportado puede tener un nombre específico utilizando la opción \texttt{tikzsetnextfilename} justo antes del ambiente \texttt{tikzpicture}. Ver el código de la Figura 1.
+\end{enumerate}
+
+\begin{figure}[ht] \label{Figura_1}
+  \centering
+  \tikzset{png export}
+  \tikzsetnextfilename{Riemann_sum}
+  \begin{tikzpicture}[scale = .65]
+      \tkzInit[xmin = -4, xmax = 5, ymin = -.5, ymax = 10, ystep = 2]
+      \tkzDrawX[label = {$t$}]
+      \tkzDrawY[label = {$f(t)$}]
+      \tkzLabelXY[label options = {font = {\tiny}}]
+      \tkzFct[line width = 1.125pt]{exp(-x / 4) * 2 * sin(x - pi / 4) + 3}
+      \tkzDrawRiemannSumInf[number = 15, interval = -4:5, fill = orange]
+  \end{tikzpicture}
+  \caption{Figura exportada en formato png.}
+\end{figure}
+
+\begin{figure}[ht]
+	\centering
+	\tikzexternaldisable % desactiva la exportación de esta figura
+    \begin{tikzpicture}[scale = .35]
+    	\tkzInit[xmin = -5, xmax = 15, xstep = 2, ymin = -10, ymax = 30, ystep = 3]
+        \tkzDrawXY
+        \tkzFct[domain = -5:4.9, color = blue, line width = 1.5pt]{(\x ** 2 - \x - 6) / (\x - 5)}
+        \tkzFct[domain = 5.1:15, color = blue, line width = 1.5pt]{(\x ** 2 - \x - 6) / (\x - 5)}
+        \tkzVLine[dashed, color = red]{5}
+        \tkzFct[dashed, color = red, samples = 2]{\x + 4}
+        \tkzText[right, color = blue](7, 25){$y = \frac{x^2 - x - 6}{x - 5}$}
+        \tkzText[right, color = red](5, 3){$x = 5$}
+        \tkzText[right, color = red](9, 11){$y = x + 4$}
+    \end{tikzpicture}
+    \caption{Esta figura no se exporta}
+\end{figure}
+
+\begin{figure}[ht] \label{Figura_3}
+	\centering
+    \tikzsetnextfilename{piecewise_function}
+    \begin{tikzpicture}
+    	\draw [step=1, gray!65] (-1, -1) grid (4, 2);
+		\tkzInit[xmin = -1, xmax = 4, ymin = -1, ymax = 2]
+		\tkzAxeXY [label options = {font = {\tiny}}]
+        \draw [color = blue, line width = 1.5pt] (-1, -1) -- (.95, .95);
+        \draw [color = blue, line width = 1.5pt] (1, 0) -- (2, 1) -- (2.95, .05);
+        \draw [color = blue, line width = 1.5pt] (3.05, .05) -- (4, 1);
+        \node [circle, draw, fill=none, line width = 1pt, color = blue, inner sep = 0pt, minimum size = 5pt] (ca) at (1, 1) {};
+        \node [circle, draw, fill, line width = 1pt, color = blue, inner sep = 0pt, minimum size = 5pt] (cb) at (1, 0) {};
+        \node [circle, draw, fill, line width = 1pt, color = blue, inner sep = 0pt, minimum size = 5pt] (cc) at (2, 1) {};
+        \node [circle, draw, fill=none, line width = 1pt, color = blue, inner sep = 0pt, minimum size = 5pt] (cc) at (3, 0) {};
+        \node [circle, draw, fill, line width = 1pt, color = blue, inner sep = 0pt, minimum size = 5pt] (cc) at (3, 1) {};
+        \draw (1.5, 1.5) node [right, color = blue] {$y = f(x)$};
+    \end{tikzpicture}
+    \caption{Imagen exportada luego de desactivar la exportación}
+\end{figure}
+
+\end{document}
