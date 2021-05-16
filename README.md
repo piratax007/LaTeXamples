@@ -7,7 +7,7 @@
 3. [Documentos Clave](#Documentos_Clave)
 4. [Estructura del Proyecto](#Estructura)
 5. [Líderes del proyecto](#leaders)
-6. [Mantendores](#mainteiners)
+6. [Mantenedores](#mainteiners)
 7. [Contribuidores](#contributors)
 
 ## Introducción <a name = "Introducción"></a>
@@ -34,7 +34,7 @@ Existe una fuerte y creciente comunidad de hispanohablantes en torno a LaTeX, si
 La estructura de este proyecto corresponde a un conjunto de directorio que - de manera organizada - contienen todas las contribuciones de código - ejemplos, paquetes, plantillas, clases, etc. -. Cada directorio de contenido esta debidamente documentado en la [wiki][8] del proyecto.
 
 - **examples** este directorio contiene subdirectorios organizados por temáticas - TikZ, Asymptote, etc.
-- **macros** contiene conjuntos de comandos o ambientes (que no están configurados como paqetes).
+- **macros** contiene conjuntos de comandos o ambientes (que no están configurados como paquetes).
 - **templates** contiene plantillas desarrolladas por los contribuidores o traducciones de plantillas disponibles en otros repositorios en otros idiomas diferentes del español.
 - **packages** contiene paquetes desarrollados por los contribuidores o traducciones de paquetes disponibles en otros repositorios en otros idiomas diferentes del español.
 - **classes** contiene clases desarrolladas por los contribuidores o traducciones de clases disponibles en otros repositorios en otros idiomas diferentes del español.
@@ -52,7 +52,7 @@ Aquí llegará cuando su conteo de contribuciones llegue a 25
 
 * ![manteiner voluntary](https://img.shields.io/badge/contributions-acount-blue) Aquí va su nombre
 
-## contribuidores <a name = "contributors"></a>
+## Contribuidores <a name = "contributors"></a>
 ![contributor voluntary](https://img.shields.io/badge/contributions-acount-red) Aquí va su nombre
 
 [1]: https://t.me/LaTeX4all_Channel
