@@ -6,7 +6,7 @@ Originalmente se creó un canal y un grupo de paoyopara resoler dudas en Telegra
 
 Tras la encuesta realizada, Fausto decidió crear varios grupos. Uno de ellos sería el de dudas generales y el resto serían de temática más específica. Para estos grupos se ha contado con apoyo en su administración de quien se ha visto comprometido con el apoyo a quien plantea dudas.
 
-Loos grupos creados son los siguientes:
+Los grupos creados son los siguientes:
 
 1. Café_LaTeX
 2. Ciencia_LaTeX
