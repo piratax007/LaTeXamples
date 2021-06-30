@@ -11,7 +11,7 @@ Los grupos creados son los siguientes:
 - Café_LaTeX:  conversaciones generales, más allá del ámbito específico de cada subgrupo
 - Biblio LaTeX: para todo lo relacionado con manejo de bases de datosbibliográficas y referencias
 - Ciencia_LaTeX: para matemáticas, física, química...
-- code_LaTeX: para todas aquellas quienes escribimos código y LATEX,también allí hablaremos sobre buenas prácticas para desarrollo de nuestro código LATEX. ¡Devs, éste es su grupo!
+- code_LaTeX: para todas aquellas personas que escriben código y LATEX, también allí hablaremos sobre buenas prácticas para desarrollo de nuestro código LATEX. ¡Devs, éste es su grupo!
 - Draw_LaTeX: para tikz y paquetes relacionados con generación de gráficos en LaTeX
 - Nova_LaTeX: grupo para que los que apenas llegan al universo LaTeX se sientan cómodos preguntando y aprendiendo
 - Tablas_LaTeX: todo lo relacionado con construcción de tablas en LaTeX
