@@ -8,11 +8,11 @@ Tras la encuesta realizada, Fausto decidió crear varios grupos. Uno de ellos se
 
 Los grupos creados son los siguientes:
 
-1. Café_LaTeX
-2. Ciencia_LaTeX
-3. Draw_LaTeX
-4. Nova_LaTeX
-5. Biblio LaTeX
-6. code_LaTeX
-7. Tablas_LaTeX
+- Café_LaTeX
+- Ciencia_LaTeX
+- Draw_LaTeX
+- Nova_LaTeX
+- Biblio LaTeX
+- code_LaTeX
+- Tablas_LaTeX
 
