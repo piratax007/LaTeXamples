@@ -1,0 +1,49 @@
+\documentclass[aspectratio=169]{beamer}
+\setbeamercovered{transparent}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{fontawesome5}
+
+\input{general_preamble.tex}
+
+\begin{document}
+\setbeamercovered{invisible}    
+    \frame{\titlepage}
+    
+    \begin{frame}{Title for the content slide}
+        \tableofcontents
+    \end{frame}
+
+    % The 'chapters' directory contains one .tex file by chapter, use the input command to add each on to the
+    % pressentation
+    \input{chapters/chapter_0.tex}
+
+    % You can uncomment this if it is nedeed
+%    \section*{Colabora con nosotros}
+%        \begin{frame}{Contribuciones}
+%            \begin{itemize}
+%                \item Úsalo y compártelo: https://coy.im/
+%                \item Reporta \textit{issues} en GitHub
+%                \item Propón mejoras a través de \textit{pull request} en GitHub: https://github.com/coyim/coyim
+%            \end{itemize}
+%        \end{frame}
+
+    % You can uncomment the follow lines to user references
+%    \section*{References}
+%        \nocite{why_coyim}
+%        \begin{frame}{References}
+%            \printbibliography
+%        \end{frame}
+
+    \section{}
+    \begin{frame}{}
+        \centering
+            \Huge\bfseries
+            \textcolor{yellowCAD}{Gracias!!!}
+            \vspace{1cm}
+            \huge
+            \textcolor{twitter}{\faTwitter } @somos\_CAD \\
+            \textcolor{youtube}{\faYoutube } Centro de Autonomía Digital \\
+            \textcolor{mastodon}{\faMastodon } @somos\_CAD@infosec.exchange \\
+    \end{frame}
+\end{document}
