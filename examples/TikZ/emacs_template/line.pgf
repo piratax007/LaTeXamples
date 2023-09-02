@@ -1,0 +1,3 @@
+\begin{tikzpicture}
+    \draw[>=latex, <->, color=red!75!yellow, line width=2pt] (0, 0) -- (5, 5);
+\end{tikzpicture}

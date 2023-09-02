@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+ENGINE=$1
+TEMPLATE=$2
+PICTURE_FILE=$3
+
+sed -i "s|<>|$PICTURE_FILE|" $TEMPLATE
+
+PICTURE_FILE_NAME=`(echo "$PICTURE_FILE") | sed 's/.pgf//'`
+
+latexmk -view=pdf -$ENGINE -output-directory=./out -jobname=$PICTURE_FILE_NAME -pvc $TEMPLATE

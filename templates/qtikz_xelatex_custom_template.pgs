@@ -1,0 +1,21 @@
+\documentclass[tikz, border=10pt]{standalone}
+\usepackage{mathptmx}
+\usepackage{amsmath, amssymb, amsfonts}
+\usepackage[utf8]{inputenc}
+\usepackage{fontspec}
+
+\usepackage{tikz}
+\usetikzlibrary{calc, intersections, angles, arrows, positioning}
+
+\usepackage[active,pdftex,tightpage]{preview}
+\PreviewEnvironment[]{tikzpicture}
+\PreviewEnvironment[]{pgfpicture}
+
+\DeclareSymbolFont{symbolsb}{OMS}{cmsy}{m}{n}
+\SetSymbolFont{symbolsb}{bold}{OMS}{cmsy}{b}{n}
+\DeclareSymbolFontAlphabet{\mathcal}{symbolsb}
+
+
+\begin{document}
+<>
+\end{document}

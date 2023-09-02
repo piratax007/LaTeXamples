@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+set -e
+
+ENGINE=$1
+# CUSTOM_RC_FILE=$2
+MAIN_FILE=$2
+
+#if [ $CUSTOM_RC_FILE != ".latexmkrc" ]; then
+latexmk -bibtex -view=pdf -$ENGINE -pvc $MAIN_FILE
+#else
+#    latexmk -bibtex -view=pdf -$ENGINE -r $CUSTOM_RC_FILE -pvc $MAIN_FILE
+#fi
