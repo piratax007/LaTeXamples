@@ -6,9 +6,11 @@
 2. [Objetivo](#Objetivo)
 3. [Documentos Clave](#Documentos_Clave)
 4. [Estructura del Proyecto](#Estructura)
+8. [Galería de gráficos con TikZ/PGF](./Galeria.md)
 5. [Líderes del proyecto](#leaders)
 6. [Mantenedores](#mainteiners)
 7. [Contribuidores](#contributors)
+
 
 ## Introducción <a name = "Introducción"></a>
 
@@ -31,7 +33,7 @@ Existe una fuerte y creciente comunidad de hispanohablantes en torno a LaTeX, si
 - [wiki][8] rápida documentación de los contenidos del proyecto.
 
 ## Estructura del Proyecto <a name = "Estructura"></a>
-La estructura de este proyecto corresponde a un conjunto de directorio que - de manera organizada - contienen todas las contribuciones de código - ejemplos, paquetes, plantillas, clases, etc. -. Cada directorio de contenido esta debidamente documentado en la [wiki][8] del proyecto.
+La estructura del proyecto corresponde a un conjunto de directorios que --de manera organizada-- contiene todos los aportes de código - ejemplos, paquetes, plantillas, clases, etc. -. Cada directorio está debidamente documentado en la [wiki][8] del proyecto.
 
 - **examples** este directorio contiene subdirectorios organizados por temáticas - TikZ, Asymptote, etc.
 - **macros** contiene conjuntos de comandos o ambientes (que no están configurados como paquetes).

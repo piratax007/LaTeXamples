@@ -1,0 +1,9 @@
+\pgfplotstableread[col sep=comma]{tikz/graficoLineas.csv}\graficoLineas
+\begin{tikzpicture}
+  \begin{axis}[xlabel={Abril 2021}, ylabel={unidades}, grid=major, legend entries={$y=a$,$y=b$,$y=c$,$y=d$}, legend style={font=\footnotesize, rounded corners=2pt, at={(0.3,0.95)}}]
+    \addplot table [x=dia, y=a] {\graficoLineas};
+    \addplot table [x=dia, y=b] {\graficoLineas};
+    \addplot table [x=dia, y=c] {\graficoLineas};
+    \addplot table [x=dia, y=d] {\graficoLineas};
+  \end{axis}
+\end{tikzpicture}

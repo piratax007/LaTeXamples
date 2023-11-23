@@ -1,0 +1,14 @@
+\documentclass[border=3pt]{standalone}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.17}
+\usetikzlibrary{external}
+\tikzexternalize[prefix=img/] % activate
+\newcommand{\inputtikz}[1]{
+  \tikzsetnextfilename{#1}
+  \input{img/#1.pgf}
+}
+\begin{document}
+%   \inputtikz{fig01}
+  \inputtikz{fig02}
+\end{document}
